@@ -1,5 +1,13 @@
+import withResponsiveContainer from "../../hoc/responsive-container";
+import ConfirmationContainer from "./container";
+import ConfirmationContent from "./content";
+
 const Confirmation = () => {
-    return <h1>Confirmation Page</h1>;
+  const ResponsiveConfirmationContent = withResponsiveContainer(ConfirmationContent);
+
+    return <ConfirmationContainer>
+      <ResponsiveConfirmationContent/>
+    </ConfirmationContainer>;
   };
   
   export default Confirmation;

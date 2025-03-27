@@ -27,6 +27,7 @@ const themeColors = {
       grey: {
         light: "#B5B1BF",
         main: "#808080",
+        default: '#E8FCF9'
       },
     },
   };

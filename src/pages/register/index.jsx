@@ -1,6 +1,15 @@
+import RegisterContainer from "./container";
+import withResponsiveContainer from "../../hoc/responsive-container";
+import RegisterContent from "./content";
+
 const Register = () => {
-    return <h1>Register Page</h1>;
-  };
-  
-  export default Register;
-  
+  const ResponsiveRegisterContent = withResponsiveContainer(RegisterContent);
+
+  return (
+    <RegisterContainer>
+      <ResponsiveRegisterContent />
+    </RegisterContainer>
+  );
+};
+
+export default Register;

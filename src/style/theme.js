@@ -5,7 +5,7 @@ import themeColors from "./palette";
 
 const theme = createTheme({
   ...themeColors,
-  ...typography,
+  typography,
 });
 
 export default theme;

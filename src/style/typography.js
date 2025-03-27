@@ -1,9 +1,10 @@
-export const typography= {
+export const typography = {
     fontFamily: "'Inter', sans-serif",
     h1: {
+      fontFamily: "'Inter', sans-serif",
       fontSize: "24px",
       fontWeight: 700,
-      "@media (min-width:600px)": { fontSize: "32px" },
+      "@media (min-width:600px)": { fontSize: "28px" },
     },
     h2: {
       fontSize: "20px",

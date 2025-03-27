@@ -1,5 +1,13 @@
+import withResponsiveContainer from "../../hoc/responsive-container";
+import DashboardContainer from "./container";
+import DashboardContent from "./content";
+
 const Dashboard = () => {
-    return <h1>Dashboard</h1>;
+  const ResponsiveDashboardContainer = withResponsiveContainer( DashboardContent);
+
+    return <DashboardContainer>
+      <ResponsiveDashboardContainer/>
+    </DashboardContainer>
   };
   
   export default Dashboard;
