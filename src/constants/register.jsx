@@ -1,35 +1,44 @@
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import StarIcon from '@mui/icons-material/Star';
+import PhoneIcon from '@mui/icons-material/Phone';
+
 export const registerConstants = {
-    title: "Configura tu perfil",
+    title: "Personaliza tu experiencia",
     steps: [
       {
         label: 'Quiero aprender sobre...',
         icon: <StarIcon />,
-        question: "¿Qué tanto sabes de finanzas?",
+        question: "¿Cuál es tu nivel de conocimiento en finanzas?",
         description:
-          "No importa si recién estás empezando o ya tienes cancha, en Yapita te damos retos según tu nivel. ¡Escoge el que más te cuadre!",
+          "Queremos ofrecerte retos a tu medida. No importa si estás comenzando o si ya tienes experiencia, ¡elige el nivel que más te acomode!",
         options: {
-          basic: "Básico – Maneja tu plata (Ahorro, presupuesto, gastos del día a día).",
-          entrepreneurship: "Emprendimiento – Crece tu negocio (Ingresos, inversión, finanzas para emprender).",
-          digitalFinance: "Finanzas digitales – Plata online (Billeteras, criptos, pagos digitales).",
+          basic: "Básico – Aprende a manejar tu dinero (ahorros, presupuesto, gastos diarios).",
+          entrepreneurship: "Emprendimiento – Finanzas para hacer crecer tu negocio (ingresos, inversión, administración).",
+          digitalFinance: "Finanzas digitales – Todo sobre el dinero online (billeteras digitales, criptomonedas, pagos electrónicos).",
         },
       },
       {
-        question: "¿A qué hora te cae mejor el chisme financiero?",
-        label: 'Mándame los retos a...',
-        icon: <AccessTimeFilledIcon/>,
+        question: "¿A qué hora prefieres recibir tus retos?",
+        label: 'Envíame los retos a...',
+        icon: <AccessTimeFilledIcon />,
         description:
-          "No queremos interrumpirte ni escribirte en una hora que no te vacile. Escoge la hora en la que tengas un tiempito libre.",
+          "Queremos que recibas los retos en el momento ideal para ti. Elige el horario en el que puedas dedicarle unos minutos sin apuros.",
         options: {
-          morning: "8:00 AM – Pa’ empezar fresh el día",
-          midMorning: "10:00 AM – Mientras me tomo un cafecito",
-          afternoon: "2:00 PM – Después del almuerzo, tranqui",
-          evening: "8:00 PM – Cuando ya bajó la chamba",
-          night: "10:00 PM – Antes de cerrar el día",
+          morning: "8:00 AM – Para empezar el día con energía.",
+          midMorning: "10:00 AM – Un break con cafecito.",
+          afternoon: "2:00 PM – Después del almuerzo, con calma.",
+          evening: "8:00 PM – Cuando el día empieza a bajar el ritmo.",
+          night: "10:00 PM – Antes de cerrar el día y desconectar.",
         },
       },
+      {
+        question: "¿A qué número te enviamos tus retos?",
+        label: "Tu número de WhatsApp",
+        icon: <PhoneIcon />,
+        description:
+          "Para enviarte los retos y recordatorios directamente a WhatsApp, necesitamos tu número. No compartiremos tu información con nadie.",
+        options: null, // Aquí no hay opciones, será un campo de texto para ingresar el número
+      },
     ],
-    nextButton: "→",
-  };
-  
+    nextButton: "Siguiente →",
+};

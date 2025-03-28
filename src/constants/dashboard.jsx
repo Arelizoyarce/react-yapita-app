@@ -7,7 +7,7 @@ import Dollar from "../assets/Group_23-removebg-preview.png";
 export const iconsDashboard = [
     {
         icon: <ConfirmationNumberIcon style={{ color: 'white', fontSize: 30 }} />,
-        path: '/benefits'
+        path: '/rewards'
     },
     {
         icon: <SportsEsportsIcon style={{ color: 'white', fontSize: 30 }} />,

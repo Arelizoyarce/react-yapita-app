@@ -3,7 +3,7 @@ import { registerConstants } from "../../constants/register";
 
 export const useRegister = () => {
   const [step, setStep] = useState(1);
-  const [value, setValue] = useState("");
+  const [formValues, setFormValues] = useState({}); // Almacena respuestas por paso
 
   const handleNext = () => {
     if (step < registerConstants.steps.length) setStep(step + 1);
@@ -13,17 +13,24 @@ export const useRegister = () => {
     if (step > 1) setStep(step - 1);
   };
 
+  const handleValueChange = (value) => {
+    setFormValues((prev) => ({
+      ...prev,
+      [step]: value, // Guarda el valor según el paso actual
+    }));
+  };
+
   const { question, description, options, label, icon } = registerConstants.steps[step - 1];
 
-  const currentOptions = Object.entries(options).map(([key, label]) => ({
-    value: key,
-    label,
-  }));
+  const isInputField = options === null; // Detecta si debe ser un input de texto
+  const currentOptions = options
+    ? Object.entries(options).map(([key, label]) => ({ value: key, label }))
+    : [];
 
   return {
     step,
-    value,
-    setValue,
+    formValues,
+    handleValueChange,
     handleNext,
     handleBack,
     currentStep: question,
@@ -31,5 +38,7 @@ export const useRegister = () => {
     currentOptions,
     currentLabel: label,
     currentIcon: icon,
+    currentValue: formValues[step] || "", // Obtiene el valor del paso actual
+    isInputField, // Indica si es un input de texto
   };
 };

@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 const DashboardContent = () => {
   const navigate =useNavigate()
   return (
-    <Stack spacing={5} height="100vh" direction={"column"}>
+    <Stack spacing={5} minHeight="100vh" direction={"column"}>
       {/* Sección de íconos superiores */}
       <Stack direction={"row"} justifyContent={"space-between"}>
         {iconsDashboard.map((e, i) => (

@@ -5,7 +5,8 @@ import { styled } from "@mui/system";
 const StyledFormControl = styled(FormControl)({
   boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
   borderRadius: "2px",
-  minWidth: "100%",
+  minWidth: "300px", // Define un ancho fijo
+  maxWidth: "300px", // Evita que crezca
   "& .MuiOutlinedInput-notchedOutline": {
     border: "none",
   },
@@ -17,23 +18,29 @@ const StyledLabel = styled(InputLabel)({
   gap: "8px",
 });
 
+const StyledSelect = styled(Select)({
+  width: "100%", // Asegura que el Select ocupe el ancho de FormControl
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+});
+
 const CustomSelect = ({ label, icon, options, value, onChange }) => {
   return (
     <StyledFormControl>
-      {/* El label solo aparece si no hay valor */}
       {!value && (
         <StyledLabel shrink={false}>
           {icon}
           {label}
         </StyledLabel>
       )}
-      <Select value={value} onChange={onChange} displayEmpty>
+      <StyledSelect value={value} onChange={onChange} displayEmpty>
         {options.map((option) => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
           </MenuItem>
         ))}
-      </Select>
+      </StyledSelect>
     </StyledFormControl>
   );
 };
