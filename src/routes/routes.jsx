@@ -7,6 +7,8 @@ import Benefits from "../pages/benefits";
 import Duels from "../pages/duels";
 import NotFound from "../pages/not-found";
 import MainLayout from "../layout/main-layout";
+import Rewards from "../pages/rewards";
+import Quiz from "../pages/quiz";
 
 const AppRouter = () => {
   return (
@@ -18,6 +20,8 @@ const AppRouter = () => {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="benefits" element={<Benefits />} />
         <Route path="duels" element={<Duels />} />
+        <Route path="rewards" element={< Rewards />} />
+        <Route path="quiz" element={< Quiz />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
