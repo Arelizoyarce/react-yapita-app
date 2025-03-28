@@ -1,0 +1,22 @@
+{
+    "name": "Yapita",
+    "short_name": "Yapita",
+    "description": "Una app gamificada para aprender finanzas diseñada para mujeres.",
+    "theme_color": "#742284",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "/192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
