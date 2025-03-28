@@ -12,7 +12,7 @@ export const registerConstants = {
         description:
           "Queremos ofrecerte retos a tu medida. No importa si estás comenzando o si ya tienes experiencia, ¡elige el nivel que más te acomode!",
         options: {
-          basic: "Básico – Aprende a manejar tu dinero (ahorros, presupuesto, gastos diarios).",
+          beginner: "Básico – Aprende a manejar tu dinero (ahorros, presupuesto, gastos diarios).",
           entrepreneurship: "Emprendimiento – Finanzas para hacer crecer tu negocio (ingresos, inversión, administración).",
           digitalFinance: "Finanzas digitales – Todo sobre el dinero online (billeteras digitales, criptomonedas, pagos electrónicos).",
         },

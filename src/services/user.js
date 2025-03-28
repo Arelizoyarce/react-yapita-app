@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
 export const fetchUser = async () => {
   const host = `${import.meta.env.VITE_API_HOST}`;
-  const userId = "1af48341-c251-43f5-8ba0-01da35064bb9";
+  const userId = localStorage.getItem("user_id")
+ ||"1af48341-c251-43f5-8ba0-01da35064bb9";
 
   try {
     const response = await fetch(`${host}/dev/user/${userId}`);
@@ -18,9 +19,9 @@ export const fetchUser = async () => {
 
 export const updateUser = async ({ userId, updates }) => {
   const host = `${import.meta.env.VITE_API_HOST}`;
-
+console.log('update', updates )
   try {
-    const response = await fetch(`${host}/dev/user/update`, {
+    const response = await fetch(`${host}/user/update`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

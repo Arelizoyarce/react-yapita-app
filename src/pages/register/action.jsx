@@ -7,9 +7,9 @@ const RegisterActions = ({ step, totalSteps, value, formValues, handleNext, hand
   const navigate = useNavigate();
   const isLastStep = step === totalSteps;
   const fieldMapping = {
-    1: "level",       
+    1: "userLevel",       
     2: "schedule",   
-    3: "number",     
+    3: "usernNumber",     
   };
   const handleFinalStep = async () => {
     try {
@@ -22,9 +22,9 @@ const RegisterActions = ({ step, totalSteps, value, formValues, handleNext, hand
         return acc;
       }, {});
   
-      const response = await createUser(updates);
+      await createUser(updates);
       const userId= localStorage.getItem("user_id");
-      await updateUser(userId, updates)
+      const response = await updateUser({userId, updates})
   
       if (response) {
         console.log("Usuario actualizado con éxito:", response);

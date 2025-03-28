@@ -1,6 +1,6 @@
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 
-const withResponsiveContainer = (Component) => {
+const withResponsiveContainer = (Component, width) => {
   return (props) => {
     const theme = useTheme();
     const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -11,6 +11,7 @@ const withResponsiveContainer = (Component) => {
         justifyContent={isDesktop ? "center" : "flex-start"} 
         flex={1} 
         height="100%"
+        width={width && "100%"}
       >
         <Box 
           width={isDesktop ? "40vw" : "100%"} 
