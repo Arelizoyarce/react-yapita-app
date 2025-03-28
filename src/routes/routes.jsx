@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Init from "../pages/init";
 import Register from "../pages/register";
 import Confirmation from "../pages/confirmation";
@@ -15,6 +15,7 @@ import ConfirmationDuel from "../pages/confirmation-duel";
 const AppRouter = () => {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/init" replace />} />
       <Route path="/" element={<MainLayout />}>
         <Route path="init" element={<Init />} />
         <Route path="register" element={<Register />} />
@@ -22,8 +23,8 @@ const AppRouter = () => {
         <Route path="dashboard" element={<Dashboard />} />
         
         <Route path="duels" element={<Duels />} />
-        <Route path="rewards" element={< Rewards />} />
-        <Route path="quiz" element={< Quiz />} />
+        <Route path="rewards" element={<Rewards />} />
+        <Route path="quiz" element={<Quiz />} />
         <Route path="friends" element={<Friends />} />
         <Route path="confirmation-duel" element={<ConfirmationDuel />} />
         <Route path="*" element={<NotFound />} />
@@ -31,6 +32,5 @@ const AppRouter = () => {
     </Routes>
   );
 };
-
 
 export default AppRouter;
