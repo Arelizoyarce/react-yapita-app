@@ -5,8 +5,10 @@ import Confirmation from "../pages/confirmation";
 import Dashboard from "../pages/dashboard";
 import Benefits from "../pages/benefits";
 import Duels from "../pages/duels";
+import Friends from "../pages/friends";
 import NotFound from "../pages/not-found";
 import MainLayout from "../layout/main-layout";
+import ConfirmationDuel from "../pages/confirmation-duel";
 
 const AppRouter = () => {
   return (
@@ -18,6 +20,8 @@ const AppRouter = () => {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="benefits" element={<Benefits />} />
         <Route path="duels" element={<Duels />} />
+        <Route path="friends" element={<Friends />} />
+        <Route path="confirmation-duel" element={<ConfirmationDuel />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

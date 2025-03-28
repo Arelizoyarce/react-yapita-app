@@ -1,5 +1,13 @@
+import withResponsiveContainer from "../../hoc/responsive-container";
+import DuelsContainer from './container';
+import DuelsContent from "./content";
+
 const Duels = () => {
-    return <h1>Duels Page</h1>;
+  const ResponsiveDashboardContainer = withResponsiveContainer(DuelsContent, { width: true });
+
+    return <DuelsContainer>
+        <ResponsiveDashboardContainer/>
+      </DuelsContainer>
   };
   
   export default Duels;
