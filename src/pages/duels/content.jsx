@@ -9,6 +9,7 @@ import PrimaryBtn from "../../components/primary-btn";
 import StarIcon from '@mui/icons-material/Star';
 import DangerousIcon from '@mui/icons-material/Dangerous';
 import { getDuels } from "../../services/duels";
+import { duelsData } from "../../constants/duels";
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
     width: 22,
@@ -30,7 +31,7 @@ const DuelsSkeleton = () => (
                         <Skeleton variant="text" width={50} height={20} sx={{ backgroundColor: "grey.300" }} />
                     </Stack>
                     <Skeleton variant="circular" width={24} height={24} sx={{ marginLeft: "auto" }} />
-                    
+
                 </Stack>
 
                 <Divider sx={{ backgroundColor: "black", opacity: 0.5, height: 2 }} />
@@ -45,7 +46,7 @@ const DuelsContent = () => {
 
     const [duels, setDuels] = useState([]);
     const [loading, setLoading] = useState(true);
-    const userId = "1af48341-c251-43f5-8ba0-01da35064bb9";
+    const userId = localStorage.getItem("user_id");
 
     useEffect(() => {
         getDuels(userId)
@@ -55,6 +56,7 @@ const DuelsContent = () => {
     }, []);
 
     const filteredData = duels?.filter(item => item.status !== "pending") || [];
+    const duelsFiltered = filteredData.length > 0 ? filteredData : duelsData;
 
     return (
         <Box sx={{ height: "100%", display: "flex", flexDirection: "column", p: 3 }}>
@@ -64,10 +66,10 @@ const DuelsContent = () => {
 
             {
                 loading ? (
-                    <DuelsSkeleton/>
+                    <DuelsSkeleton />
                 ) : (
                     <Stack spacing={4} alignItems="start" mt={4} width="100%" flexGrow={1}>
-                        {filteredData.map((item, index) => (
+                        {duelsFiltered.map((item, index) => (
                             <Box key={index} width="100%">
                                 <Stack display="flex" flexDirection="row" width="100%" alignItems="center" py={2}>
                                     <AvatarGroup spacing={8}>
@@ -82,7 +84,7 @@ const DuelsContent = () => {
                                             {item.created_at}
                                         </Typography>
                                     </Stack>
-                                    {
+                                    {filteredData.length > 0 ? (
                                         item.winner_id === userId ? (
                                             <Stack sx={{ marginLeft: "auto" }}>
                                                 <StarIcon sx={{ color: theme.palette.warning.main }} />
@@ -92,7 +94,19 @@ const DuelsContent = () => {
                                                 <DangerousIcon sx={{ color: theme.palette.error.main }} />
                                             </Stack>
                                         )
-                                    }
+                                    ) : (
+                                        item.result === "Ganaste" ? (
+                                            <Stack sx={{ marginLeft: "auto" }}>
+                                                <StarIcon sx={{ color: theme.palette.warning.main }} />
+                                            </Stack>
+                                        ) : (
+                                            <Stack sx={{ marginLeft: "auto" }}>
+                                                <DangerousIcon sx={{ color: theme.palette.error.main }} />
+                                            </Stack>
+                                        )
+                                    )}
+
+
                                 </Stack>
 
                                 <Divider sx={{ backgroundColor: "black", opacity: 0.5, height: 2 }} />
@@ -104,7 +118,7 @@ const DuelsContent = () => {
 
 
             <Box sx={{ p: 2, display: "flex", justifyContent: "center" }}>
-                <PrimaryBtn sx={{ textTransform: "none", backgroundColor: theme.palette.secondary.main }} onClick={() => navigate('/friends')} disaabled={loading}>
+                <PrimaryBtn sx={{ textTransform: "none", backgroundColor: theme.palette.secondary.main }} onClick={() => navigate('/friends')} disabled={loading}>
                     Retar a una amiga
                 </PrimaryBtn>
             </Box>

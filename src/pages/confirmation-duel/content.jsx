@@ -11,7 +11,6 @@ const ConfirmationDuelContent = () => {
 const navigate = useNavigate();
     const location = useLocation();
     const { user_name, user_avatar, name, avatar } = location.state || {};
-    console.log(user_name, user_avatar, name, avatar);
 
     return (
         <Box m={3} display="flex" flexDirection="column" justifyContent="center" sx={{ height: "100%" }}>

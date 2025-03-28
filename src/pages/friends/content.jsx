@@ -33,7 +33,7 @@ const FriendsContent = () => {
 
     const [friends, setFriends] = useState([]);
     const [loading, setLoading] = useState(true);
-    const userId = "1af48341-c251-43f5-8ba0-01da35064bb9";
+    const userId= localStorage.getItem("user_id");
 
     useEffect(() => {
         getFriends(userId)

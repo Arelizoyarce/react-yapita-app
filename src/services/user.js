@@ -5,7 +5,8 @@ export const fetchUser = async () => {
  ||"1af48341-c251-43f5-8ba0-01da35064bb9";
 
   try {
-    const response = await fetch(`${host}/dev/user/${userId}`);
+    const response = await fetch(`${host}/user/${userId}`);
+    console.log('responsee', response)
     if (!response.ok) {
       throw new Error("Error al obtener el usuario");
     }

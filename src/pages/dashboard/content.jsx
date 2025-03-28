@@ -8,9 +8,20 @@ import InsigniaContainer from "../../components/insignia";
 import Gift from "../../assets/gift.png";
 import CustomeLinearProgress from "../../components/customer-linearprogress";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { fetchUser } from "../../services/user";
 
 const DashboardContent = () => {
-  const navigate =useNavigate()
+  const navigate =useNavigate();
+  const [userInfo, setUserinfo] = useState([])
+
+  useEffect(() => {
+    fetchUser()
+      .then((data) => setUserinfo(data))
+      .catch((error) => console.error("Error fetching duels:", error))
+  }, []);
+  console.log('userInfo', userInfo)
+
   return (
     <Stack spacing={5} minHeight="100vh" direction={"column"}>
       {/* Sección de íconos superiores */}
@@ -44,7 +55,7 @@ const DashboardContent = () => {
           Yapitas
         </Typography>
         <Typography variant="h1" sx={{ marginLeft: 3, fontSize: "50px" }}>
-          50
+          {userInfo.yapitas || 0}
         </Typography>
       </Box>
 
@@ -59,7 +70,7 @@ const DashboardContent = () => {
           />
         </Box>
         <Stack alignItems={"center"} my={5}>
-          <CustomeLinearProgress variant="determinate" value={50} />
+          <CustomeLinearProgress variant="determinate" value={userInfo.progress || 0} />
         </Stack>
       </Stack>
 
@@ -94,7 +105,7 @@ const DashboardContent = () => {
                 >
                   <Stack direction="row" alignItems="center">
                     {/* Ícono */}
-                    <Box sx={{ width: 40, height: 40 }}>{item.image}</Box>
+                    <Box sx={{ width: 40, height: 40 }} onClick={item.title === "Duelos" ? () => navigate('/duels') : undefined} >{item.image}</Box>
 
                     {/* Texto */}
                     <Stack textAlign={"start"} ml={2}>
